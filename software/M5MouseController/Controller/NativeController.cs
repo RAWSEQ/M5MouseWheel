@@ -28,7 +28,7 @@ namespace M5MouseController.Controller
         const int MOUSEEVENTF_RIGHTDOWN = 0x0008;
         const int MOUSEEVENTF_RIGHTUP = 0x0010;
         const int MOUSEEVENTF_MIDDLEDOWN = 0x0020;
-        const int MOUSEEVENTF_MIDDLEUP = 0x0030;
+        const int MOUSEEVENTF_MIDDLEUP = 0x0040;
         const int MOUSEEVENTF_WHEEL = 0x0800;
         const int MOUSEEVENTF_HWHEEL = 0x01000;
         const int MOUSEEVENTF_VIRTUALDESK = 0x4000;

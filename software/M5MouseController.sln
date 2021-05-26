@@ -5,16 +5,30 @@ VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M5MouseController", "M5MouseController\M5MouseController.csproj", "{62504B96-3382-4D02-BB01-DB5FCBB66CD8}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "M5MouseControllerSetup", "M5MouseControllerSetup\M5MouseControllerSetup.wixproj", "{4CCA718C-742C-414D-AD37-A5B87065C4B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{62504B96-3382-4D02-BB01-DB5FCBB66CD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{62504B96-3382-4D02-BB01-DB5FCBB66CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62504B96-3382-4D02-BB01-DB5FCBB66CD8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{62504B96-3382-4D02-BB01-DB5FCBB66CD8}.Debug|x86.Build.0 = Debug|Any CPU
 		{62504B96-3382-4D02-BB01-DB5FCBB66CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62504B96-3382-4D02-BB01-DB5FCBB66CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62504B96-3382-4D02-BB01-DB5FCBB66CD8}.Release|x86.ActiveCfg = Release|Any CPU
+		{62504B96-3382-4D02-BB01-DB5FCBB66CD8}.Release|x86.Build.0 = Release|Any CPU
+		{4CCA718C-742C-414D-AD37-A5B87065C4B2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4CCA718C-742C-414D-AD37-A5B87065C4B2}.Debug|x86.ActiveCfg = Debug|x86
+		{4CCA718C-742C-414D-AD37-A5B87065C4B2}.Debug|x86.Build.0 = Debug|x86
+		{4CCA718C-742C-414D-AD37-A5B87065C4B2}.Release|Any CPU.ActiveCfg = Release|x86
+		{4CCA718C-742C-414D-AD37-A5B87065C4B2}.Release|x86.ActiveCfg = Release|x86
+		{4CCA718C-742C-414D-AD37-A5B87065C4B2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

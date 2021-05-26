@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="M5MouseController" Language="1033" Version="1.0.0.0" Manufacturer="RAWSEQ" UpgradeCode="c840897f-28d7-4988-b809-a4514758676a">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="M5MouseController" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentRef Id="ProgramMenu" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="M5MouseController" />
+			</Directory>
+			<Directory Id="ProgramMenuFolder">
+				<Directory Id="ApplicationProgramsFolder" Name="M5MouseController"/>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Id="ProductComponent" Guid="c18eeb8a-991b-465c-8775-e0082b465dbd">
+				<File Id="File01" Name="M5MouseController.exe" Source="..\M5MouseController\bin\Release\netcoreapp3.1\M5MouseController.exe"/>
+				<File Id="File02" Name="M5MouseController.deps.json" Source="..\M5MouseController\bin\Release\netcoreapp3.1\M5MouseController.deps.json"/>
+				<File Id="File03" Name="M5MouseController.dll" Source="..\M5MouseController\bin\Release\netcoreapp3.1\M5MouseController.dll"/>
+				<File Id="File04" Name="M5MouseController.pdb" Source="..\M5MouseController\bin\Release\netcoreapp3.1\M5MouseController.pdb"/>
+				<File Id="File05" Name="M5MouseController.runtimeconfig.dev.json" Source="..\M5MouseController\bin\Release\netcoreapp3.1\M5MouseController.runtimeconfig.dev.json"/>
+				<File Id="File06" Name="M5MouseController.runtimeconfig.json" Source="..\M5MouseController\bin\Release\netcoreapp3.1\M5MouseController.runtimeconfig.json"/>
+				<File Id="File07" Name="Newtonsoft.Json.dll" Source="..\M5MouseController\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll"/>
+				<File Id="File08" Name="Interop.IWshRuntimeLibrary.dll" Source="..\M5MouseController\bin\Release\netcoreapp3.1\Interop.IWshRuntimeLibrary.dll"/>
+			</Component>
+		</ComponentGroup>
+		<ComponentGroup Id="ProgramMenus" Directory="ApplicationProgramsFolder">
+			<Component Id="ProgramMenu" Guid="e252472c-1b74-4081-9a8c-1508238791dd">
+				<Shortcut Id="ApplicationStartMenuShortcut"
+					Name="M5MouseController"
+					Description="M5MouseController"
+					Target="[INSTALLFOLDER]M5MouseController.exe"
+					WorkingDirectory="INSTALLFOLDER"/>
+				<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+				<RegistryValue Root="HKCU" Key="Software\Microsoft\M5MouseController" Name="Installed" Type="integer" Value="1" KeyPath="yes"/>
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+
+</Wix>

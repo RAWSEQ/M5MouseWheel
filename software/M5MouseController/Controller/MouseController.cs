@@ -7,6 +7,7 @@ namespace M5MouseController.Controller
         public String preval = "";
         public int preival = 0;
         public String premethod = "";
+        public int scroll_adjust = 0;
 
         public string Control(String val)
         {
@@ -21,7 +22,7 @@ namespace M5MouseController.Controller
             int i_val;
             if (!int.TryParse(v_val, out i_val)) return resmsg;
 
-            if (this.premethod != method && method != "L" && method != "R" && this.premethod != "L" && this.premethod != "R") this.preival = 0;
+            if (this.premethod != method && method != "L" && method != "R" && method != "M" && this.premethod != "L" && this.premethod != "R" && this.premethod != "M") this.preival = 0;
 
             if (method == "X")
             {
@@ -33,11 +34,16 @@ namespace M5MouseController.Controller
             }
             else if (method == "S")
             {
-                NativeController.SendMouseWheel((i_val - this.preival));
+                // for Scroll behavior
+                NativeController.SendMouseWheel((i_val  - this.preival) * this.scroll_adjust);
             }
             else if (method == "U")
             {
                 NativeController.SendMouseHWheel((i_val - this.preival));
+            }
+            else if (method == "V")
+            {
+                NativeController.SendMouseWheel((i_val - this.preival));
             }
             else if (method == "L")
             {

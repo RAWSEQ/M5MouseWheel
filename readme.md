@@ -14,4 +14,4 @@ Windows Form Application
 
 ## Relase
 
-Their's Compiled Files
+Compiled Binary

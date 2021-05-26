@@ -9,21 +9,17 @@ using Windows.Devices.Bluetooth.GenericAttributeProfile;
 
 namespace M5MouseController.Controller
 {
+    delegate void BleEventHandler(string code);
     class M5StackBLE
     {
-        private MouseController mousec = null;
         private BluetoothLEAdvertisementWatcher advWatcher;
 
         public String device_name = "";
         public String service_uuid = "";
         public String chara_uuid = "";
 
-        public Form1 form;
-
-        public M5StackBLE(Form1 form)
-        {
-            this.form = form;
-        }
+        public event BleEventHandler OnStatusChange;
+        public event BleEventHandler OnChrChange;
 
         public void Start()
         {
@@ -40,6 +36,7 @@ namespace M5MouseController.Controller
                 Thread.Sleep(10000);
                 this.advWatcher.Stop();
                 Debug.WriteLine("Advertisement stop");
+                OnStatusChange("ble_conn_stop");
             });
         }
 
@@ -65,6 +62,7 @@ namespace M5MouseController.Controller
 
                     BluetoothLEDevice dev = await BluetoothLEDevice.FromBluetoothAddressAsync(args.BluetoothAddress);
                     Debug.WriteLine($"Connect Device...{dev.DeviceId}");
+                    dev.ConnectionStatusChanged += Dev_ConnectionStatusChanged;
 
                     var services = await dev.GetGattServicesForUuidAsync(new Guid(service_uuid));
                     GattDeviceService Service = services.Services[0];
@@ -82,7 +80,7 @@ namespace M5MouseController.Controller
                             await gattCharacteristic.WriteClientCharacteristicConfigurationDescriptorAsync(
                                         GattClientCharacteristicConfigurationDescriptorValue.Notify);
 
-                        this.form.DgStatusChange("Connection was Successful.");
+                        OnStatusChange("ble_success");
 
                     }
 
@@ -94,13 +92,21 @@ namespace M5MouseController.Controller
             }
         }
 
+        private void Dev_ConnectionStatusChanged(BluetoothLEDevice sender, object args)
+        {
+            if (sender.ConnectionStatus.ToString() == "Disconnected")
+            {
+                OnStatusChange("ble_disconnected");
+            }
+            
+        }
+
         public void Changed_data(GattCharacteristic sender, GattValueChangedEventArgs eventArgs)
         {
             // 受信データサイズ
             var dataReader = Windows.Storage.Streams.DataReader.FromBuffer(eventArgs.CharacteristicValue);
-            var output = dataReader.ReadString(eventArgs.CharacteristicValue.Length);
-            if (mousec == null) mousec = new MouseController();
-            form.DgPointerChange(mousec.Control(output));
+            string output = dataReader.ReadString(eventArgs.CharacteristicValue.Length);
+            OnChrChange(output);
             return;
         }
 
