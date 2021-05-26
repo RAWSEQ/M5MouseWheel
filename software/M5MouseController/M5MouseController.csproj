@@ -8,6 +8,7 @@
   <PropertyGroup>
     <TargetPlatformVersion>10.0</TargetPlatformVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <COMReference Include="IWshRuntimeLibrary">

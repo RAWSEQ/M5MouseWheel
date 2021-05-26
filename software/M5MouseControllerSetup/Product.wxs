@@ -10,6 +10,10 @@
 			<ComponentGroupRef Id="ProductComponents" />
 			<ComponentRef Id="ProgramMenu" />
 		</Feature>
+
+		<Icon Id="icon.ico" SourceFile="..\M5MouseController\favicon.ico"/>
+		<Property Id="ARPPRODUCTICON" Value="icon.ico" />
+
 	</Product>
 
 	<Fragment>
@@ -42,7 +46,8 @@
 					Name="M5MouseController"
 					Description="M5MouseController"
 					Target="[INSTALLFOLDER]M5MouseController.exe"
-					WorkingDirectory="INSTALLFOLDER"/>
+					WorkingDirectory="INSTALLFOLDER"
+				/>
 				<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
 				<RegistryValue Root="HKCU" Key="Software\Microsoft\M5MouseController" Name="Installed" Type="integer" Value="1" KeyPath="yes"/>
 			</Component>
