@@ -14,9 +14,9 @@ namespace M5MouseController.Controller
     {
         private BluetoothLEAdvertisementWatcher advWatcher;
 
-        public String device_name = "";
-        public String service_uuid = "";
-        public String chara_uuid = "";
+        public String device_name = "m5mw_01";
+        public String service_uuid = "6e400001-b5a3-f393-e0a9-e50e24dcca9e"; // NORDIC UART SERVICE
+        public String chara_uuid = "6e400003-b5a3-f393-e0a9-e50e24dcca9e"; //NORDIC UART TX
 
         public event BleEventHandler OnStatusChange;
         public event BleEventHandler OnChrChange;

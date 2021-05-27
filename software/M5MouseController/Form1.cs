@@ -35,8 +35,6 @@ namespace M5MouseController
         {
             statusChange("ble_connect");
             m5ble.device_name = textBox1.Text;
-            m5ble.service_uuid = textBox2.Text;
-            m5ble.chara_uuid = textBox3.Text;
             m5ble.OnStatusChange += DgStatusChange;
             m5ble.OnChrChange += OnChrChange;
             m5ble.Start();
@@ -64,14 +62,6 @@ namespace M5MouseController
         }
 
         private void textBox1_LostFocus(object sender, EventArgs e)
-        {
-            SaveSetting();
-        }
-        private void textBox2_LostFocus(object sender, EventArgs e)
-        {
-            SaveSetting();
-        }
-        private void textBox3_LostFocus(object sender, EventArgs e)
         {
             SaveSetting();
         }
@@ -155,8 +145,6 @@ namespace M5MouseController
                 }
 
                 setting.device_name = textBox1.Text;
-                setting.service_uuid = textBox2.Text;
-                setting.chara_uuid = textBox3.Text;
                 setting.scroll_adjust = textBox4.Text;
                 setting.startup = checkBox1.Checked ? "true" : "false";
 
@@ -185,9 +173,15 @@ namespace M5MouseController
                     setting = JSON.parse(File.ReadAllText(Environment.GetEnvironmentVariable("userprofile") + "\\.m5mouse\\setting.json"));
                 }
 
-                textBox1.Text = setting.device_name;
-                textBox2.Text = setting.service_uuid;
-                textBox3.Text = setting.chara_uuid;
+                if (setting.device_name == null)
+                {
+                    textBox1.Text = "m5mw_01";
+                }
+                else
+                {
+                    textBox1.Text = setting.device_name;
+                }
+                textBox1.Text = "m5mw_01";
                 int i_val;
                 string s_val = setting.scroll_adjust;
                 if (!int.TryParse(s_val, out i_val))
@@ -200,6 +194,7 @@ namespace M5MouseController
             catch (Exception ex)
             {
                 //ファイルや値取得の動作についてのエラーは無視
+                textBox1.Text = "m5mw_01";
                 textBox4.Text = "-60";
             }
 
