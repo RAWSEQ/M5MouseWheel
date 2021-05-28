@@ -13,7 +13,7 @@ namespace M5MouseController.Controller
             // ショートカットそのもののパス
             string shortcutPath = System.IO.Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.StartMenu) + "\\Programs\\Startup", @"M5MouseController.lnk");
             // ショートカットのリンク先(起動するプログラムのパス)
-            string targetPath = Application.ExecutablePath;
+            string targetPath = Application.ExecutablePath.Replace(".dll",".exe");
 
             // WshShellを作成
             IWshRuntimeLibrary.WshShell shell = new IWshRuntimeLibrary.WshShell();
@@ -30,7 +30,7 @@ namespace M5MouseController.Controller
             // ⑤コメント
             shortcut.Description = "テストのアプリケーション";
             // ⑥アイコンのパス 自分のEXEファイルのインデックス0のアイコン
-            shortcut.IconLocation = Application.ExecutablePath + ",0";
+            shortcut.IconLocation = targetPath + ",0";
 
             // ショートカットを作成
             shortcut.Save();
