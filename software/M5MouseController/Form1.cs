@@ -186,7 +186,7 @@ namespace M5MouseController
                 string s_val = setting.scroll_adjust;
                 if (!int.TryParse(s_val, out i_val))
                 {
-                    i_val = -60; // default
+                    i_val = 60; // default
                 }
                 textBox4.Text = i_val.ToString();
                 checkBox1.Checked = (setting.startup == "true");
@@ -195,7 +195,7 @@ namespace M5MouseController
             {
                 //ファイルや値取得の動作についてのエラーは無視
                 textBox1.Text = "m5mw_01";
-                textBox4.Text = "-60";
+                textBox4.Text = "60";
             }
 
         }

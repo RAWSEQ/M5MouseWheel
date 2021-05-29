@@ -35,11 +35,11 @@ namespace M5MouseController.Controller
             else if (method == "S")
             {
                 // for Scroll behavior
-                NativeController.SendMouseWheel((i_val  - this.preival) * this.scroll_adjust);
+                NativeController.SendMouseWheel((i_val  - this.preival) * this.scroll_adjust * -1); //invert
             }
             else if (method == "U")
             {
-                NativeController.SendMouseHWheel((i_val - this.preival));
+                NativeController.SendMouseHWheel((i_val - this.preival) * this.scroll_adjust);
             }
             else if (method == "V")
             {
