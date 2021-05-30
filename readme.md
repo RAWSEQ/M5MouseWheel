@@ -6,8 +6,15 @@ for M5Stack & Faces & Encoder & Windows10
 <hr>
 
 - **Quick Installation Guide (GoogleSlide)** <br>
-https://docs.google.com/presentation/d/e/2PACX-1vT6SWcz1KLnEZBDmtYqbbwyzALN3QQR76dL_uekL1zzBH00yb19GNTGETNAm5PIM4AVfZfnmII9mSXc/pub?start=false&loop=false&delayms=3000
+<a href="https://docs.google.com/presentation/d/e/2PACX-1vT6SWcz1KLnEZBDmtYqbbwyzALN3QQR76dL_uekL1zzBH00yb19GNTGETNAm5PIM4AVfZfnmII9mSXc/pub?start=false&loop=false&delayms=3000" target="_blank">M5MouseWheel Quick Installation Guide (GoogleSlide)</a>
 
+## Hardware
+
+- Windows10 PC
+- M5Stack
+- M5 Faces Base
+- M5 Faces Encoder Module
+- Bluetooth 4.0 (LE)
 
 ## /firmware
 
