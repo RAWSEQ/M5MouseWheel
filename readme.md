@@ -29,3 +29,7 @@ Windows Form Application
 ## Relase
 
 Compiled Binary
+
+## License
+
+MIT
