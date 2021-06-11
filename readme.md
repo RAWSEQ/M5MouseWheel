@@ -1,7 +1,16 @@
 # M5MouseWheel
 
-<img src="https://ltside.com/images/m5mci.png">
-for M5Stack & Faces & Encoder & Windows10
+## A new version is now available!
+
+See:
+https://github.com/RAWSEQ/M5MouseWheel-BluetoothMouse
+
+Different points:
+
+| | OLD | NEW |
+|-|-|-|
+|Firmware Development Environment|UiFlow(Visual,Python)|Arduino IDE(C++)|
+|Bluetooth|UART(Windows only)|HID(as Bluetooth Mouse)|
 
 <hr>
 
