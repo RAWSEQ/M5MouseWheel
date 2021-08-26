@@ -1,13 +1,13 @@
 # M5MouseWheel
 
-## A new version is now available!
+## A BLE-HID version is now available!
 
 See:
 https://github.com/RAWSEQ/M5MouseWheel-BluetoothMouse
 
 Different points:
 
-| | OLD | NEW |
+| | UART(Here) | BLE-HID |
 |-|-|-|
 |Firmware Development Environment|UiFlow(Visual,Python)|Arduino IDE(C++)|
 |Bluetooth|UART(Windows only)|HID(as Bluetooth Mouse)|
